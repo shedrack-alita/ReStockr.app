@@ -1,9 +1,20 @@
-/**
- * Full user profile contract (addresses, preferences) — distinct from
- * shared/types/auth.ts's `AuthUser`, which is only the minimal identity
- * shape the session endpoint returns. Not built yet.
- */
 export interface UserProfile {
+  firstName: string
+  lastName: string
+  phone: string
+  avatarDataUrl?: string
+}
+
+export interface UserAddress {
   id: string
-  // TODO: addresses, phone, preferences, etc.
+  fullName: string
+  label: string
+  addressLine: string
+  apartment?: string
+  city: string
+  state: string
+  postalCode: string
+  country: string
+  phone: string
+  isDefault: boolean
 }

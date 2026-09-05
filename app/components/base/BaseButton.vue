@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { NuxtLink } from '#components'
 
-/**
- * Base button. Renders a real <button> normally, or a <NuxtLink> when `to`
- * is passed — same visual styles either way, so callers don't need two
- * components for "looks like a button, navigates like a link".
- */
 const props = withDefaults(
   defineProps<{
     variant?: 'primary' | 'dark' | 'outline' | 'ghost'
@@ -14,7 +9,7 @@ const props = withDefaults(
     type?: 'button' | 'submit' | 'reset'
     loading?: boolean
     disabled?: boolean
-    /** Full-width block button — used for primary form submits. */
+
     block?: boolean
   }>(),
   {
@@ -38,9 +33,9 @@ const variantClass: Record<NonNullable<typeof props.variant>, string> = {
 }
 
 const sizeClass: Record<NonNullable<typeof props.size>, string> = {
-  sm: 'text-sm px-4 py-2 gap-1.5',
-  md: 'text-base px-6 py-3 gap-2',
-  lg: 'text-base px-8 py-4 gap-2',
+  sm: 'text-sm px-2 py-2 gap-1.5',
+  md: 'text-base px-4 py-2 gap-2',
+  lg: 'text-base px-6 py-2 gap-2',
 }
 </script>
 

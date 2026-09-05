@@ -1,19 +1,10 @@
-/**
- * Auth API contract — the request/response shapes for `server/api/auth/*`.
- * Lives in `shared/` (not `app/types/`) because both the server route
- * handlers and the frontend store/composable import it: Nuxt 4 auto-import
- * makes `shared/` visible from both `app/` and `server/` without a
- * relative import.
- *
- * These routes are currently stubs (see server/api/auth/*.ts) — no real
- * backend exists yet — but the contract is real and stable so the
- * frontend can be built against it now.
- */
+export type UserRole = 'customer' | 'merchant' | 'rider'
 
 export interface AuthUser {
   id: string
   name: string
   email: string
+  role: UserRole
 }
 
 export interface SessionResponse {
@@ -42,4 +33,50 @@ export interface ForgotPasswordPayload {
 export interface ResetPasswordPayload {
   token: string
   password: string
+}
+
+/** See ReStockr UI/Authentication Pages/Merchant Registration Flow 1&2.png. */
+export interface MerchantSignUpPayload {
+  businessName: string
+  email: string
+  phone: string
+  category: string
+  password: string
+}
+
+export interface MerchantSignInPayload {
+  email: string
+  password: string
+  rememberMe?: boolean
+}
+
+export type RiderVehicle = 'motorbike' | 'tricycle' | 'van'
+
+/** See ReStockr UI/Authentication Pages/Rider Registration Flow 1&2.png. */
+export interface RiderSignUpPayload {
+  name: string
+  phone: string
+  vehicle: RiderVehicle
+  password: string
+}
+
+export interface RiderSignInPayload {
+  phone: string
+  password: string
+  rememberMe?: boolean
+}
+
+/**
+ * OTP verification — shared by the customer/merchant/rider "Check your
+ * inbox" screen (ReStockr UI/Authentication Pages/Verification.png,
+ * Merchant Verification.png, Rider's Verification.png are all this same
+ * screen). `channel` says whether `destination` is an email or a phone
+ * number, since the rider flow verifies a phone instead.
+ */
+export type OtpChannel = 'email' | 'phone'
+
+export interface VerifyOtpPayload {
+  channel: OtpChannel
+  destination: string
+  code: string
 }

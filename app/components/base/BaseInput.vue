@@ -3,13 +3,14 @@ import { useId } from 'vue'
 
 withDefaults(
   defineProps<{
-    modelValue: string
+    modelValue: string | undefined
     label: string
     type?: string
     placeholder?: string
     autocomplete?: string
     error?: string
     hint?: string
+    disabled?: boolean
   }>(),
   {
     type: 'text',
@@ -17,6 +18,7 @@ withDefaults(
     autocomplete: undefined,
     error: undefined,
     hint: undefined,
+    disabled: false,
   },
 )
 
@@ -34,12 +36,13 @@ const id = useId()
     <input
       :id="id"
       :type="type"
-      :value="modelValue"
+      :value="modelValue ?? ''"
       :placeholder="placeholder"
       :autocomplete="autocomplete"
       :aria-invalid="!!error"
       :aria-describedby="error ? `${id}-error` : hint ? `${id}-hint` : undefined"
-      class="w-full rounded-field border border-border-subtle bg-surface-input px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus-visible:outline-2 focus-visible:outline-focus-ring"
+      :disabled="disabled"
+      class="w-full rounded-field border border-border-subtle bg-surface-input px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus-visible:outline-2 focus-visible:outline-focus-ring disabled:cursor-not-allowed disabled:opacity-60"
       :class="error ? '!border-danger' : ''"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     >

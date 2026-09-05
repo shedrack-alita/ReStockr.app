@@ -1,14 +1,8 @@
 <script setup lang="ts">
-/**
- * FAQ accordion, built on native <details>/<summary> rather than a
- * hand-rolled ARIA widget — it's keyboard-operable, announces
- * expanded/collapsed state, and works with Find-in-page out of the box,
- * for less code than reimplementing the same guarantees by hand.
- */
+
 withDefaults(
   defineProps<{
     items: { question: string; answer: string }[]
-    /** Question text of the item that should start expanded, if any. */
     defaultOpen?: string
   }>(),
   {

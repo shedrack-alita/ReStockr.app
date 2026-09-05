@@ -4,6 +4,6 @@
     <main class="flex-1 bg-green-950">
       <slot />
     </main>
-    <LayoutFooter />
+    <LayoutFooter dark />
   </div>
 </template>

@@ -6,18 +6,10 @@ import { signUpSchema } from '#shared/schemas/auth'
 
 definePageMeta({ layout: 'auth', middleware: 'guest' })
 
-useSeoMeta({ title: 'Create account — ReStockr' })
+useSeoMeta({ title: 'ReStockr - Create account' })
 
 const auth = useAuth()
 
-/**
- * Extends the shared signUpSchema with a field that only exists for this
- * form's own UX (terms agreement) — not part of the actual API contract
- * (shared/types/auth.ts SignUpPayload), so only
- * { name, email, password, marketingOptIn } gets sent to auth.signUp().
- * No confirm-password field — the design (Create account.png) doesn't
- * have one, just the live requirement checklist below the single field.
- */
 const registerSchema = signUpSchema.extend({
   agreeToTerms: z.boolean().refine((v) => v === true, 'You must agree to the terms to continue'),
 })
@@ -48,7 +40,7 @@ const onSubmit = handleSubmit(async (values) => {
   submitError.value = null
   try {
     await auth.signUp({ name: values.name, email: values.email, password: values.password, marketingOptIn: values.marketingOptIn })
-    await navigateTo('/')
+    await navigateTo({ path: '/verify', query: { channel: 'email', destination: values.email, next: '/onboarding/profile' } })
   } catch (err) {
     submitError.value = getErrorMessage(err)
   }
@@ -57,7 +49,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <NuxtLink to="/" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />
@@ -118,9 +110,11 @@ const onSubmit = handleSubmit(async (values) => {
       </form>
     </div>
 
-    <BaseButton type="button" variant="primary" size="lg" block :loading="isSubmitting" class="mt-6" @click="onSubmit">
-      Create Account
-    </BaseButton>
+    <div class="mt-6 flex justify-center">
+      <BaseButton type="button" variant="primary" size="lg" :loading="isSubmitting" class="w-full max-w-[220px]" @click="onSubmit">
+        Create Account
+      </BaseButton>
+    </div>
     <p class="mt-3 text-center text-sm text-text-secondary">
       Already have an account?
       <NuxtLink to="/login" class="font-semibold text-text-primary hover:underline">Log In</NuxtLink>

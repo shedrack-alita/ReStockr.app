@@ -5,7 +5,7 @@ import { signInSchema } from '#shared/schemas/auth'
 
 definePageMeta({ layout: 'auth', middleware: 'guest' })
 
-useSeoMeta({ title: 'Sign in — ReStockr' })
+useSeoMeta({ title: 'ReStockr - Sign in' })
 
 const auth = useAuth()
 const route = useRoute()
@@ -25,7 +25,7 @@ const onSubmit = handleSubmit(async (values) => {
   submitError.value = null
   try {
     await auth.signIn(values)
-    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/'
+    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/marketplace'
     await navigateTo(redirect)
   } catch (err) {
     submitError.value = getErrorMessage(err)
@@ -35,7 +35,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <NuxtLink to="/" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />
@@ -86,9 +86,11 @@ const onSubmit = handleSubmit(async (values) => {
       </form>
     </div>
 
-    <BaseButton type="button" variant="primary" size="lg" block :loading="isSubmitting" class="mt-6" @click="onSubmit">
-      Sign In
-    </BaseButton>
+    <div class="mt-6 flex justify-center">
+      <BaseButton type="button" variant="primary" size="lg" :loading="isSubmitting" class="w-full max-w-[220px]" @click="onSubmit">
+        Sign In
+      </BaseButton>
+    </div>
     <p class="mt-3 text-center text-sm text-text-secondary">
       New here?
       <NuxtLink to="/register" class="font-semibold text-text-primary hover:underline">Create an account</NuxtLink>

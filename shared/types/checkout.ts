@@ -1,5 +1,16 @@
-/** Checkout request/response contract — not built yet. */
+export type PaymentMethod = 'card' | 'bank-transfer' | 'pay-on-delivery'
+
+export interface ShippingAddress {
+  fullName: string
+  phone: string
+  addressLine: string
+  city: string
+  state: string
+  country: string
+}
+
 export interface CheckoutPayload {
   cartId: string
-  // TODO: shippingAddress, paymentMethod, etc.
+  shippingAddress: ShippingAddress
+  paymentMethod: PaymentMethod
 }

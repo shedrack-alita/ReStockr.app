@@ -1,7 +1,10 @@
-/**
- * Fetch/cache a single product by slug — not built yet. Depends on
- * server/api/products/[slug].get.ts (currently a placeholder).
- */
-export function useProduct(_slug: string) {
-  // TODO: useFetch(`/api/products/${slug}`), return { product, status, error }.
+export function useProduct(slug: string) {
+  const store = useProductsStore()
+
+  if (store.status === 'idle') void store.fetch()
+
+  const product = computed(() => store.bySlug(slug))
+  const status = computed(() => store.status)
+
+  return { product, status }
 }

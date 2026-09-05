@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import type { ShowcaseProduct } from '~/types/product'
 
-/**
- * Generic, reusable presentational card for a showcase product (New
- * Arrivals / Featured Products by Merchants) — no cart, no link to a
- * product-detail route, just static marketing content until a real catalog
- * exists to link out to. Lives in components/common because it isn't tied
- * to the home page specifically, unlike ProductShowcase/Hero/etc.
- */
 defineProps<ShowcaseProduct & { eager?: boolean }>()
 </script>
 
@@ -15,7 +8,7 @@ defineProps<ShowcaseProduct & { eager?: boolean }>()
   <article class="group overflow-hidden rounded-field bg-white">
     <div class="relative aspect-square overflow-hidden bg-gray-100">
       <NuxtImg
-        :src="`https://picsum.photos/seed/${image.seed}/400/400`"
+        :src="image.url"
         :alt="image.alt"
         width="400"
         height="400"

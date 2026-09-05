@@ -17,7 +17,7 @@ const newArrivals: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      seed: 'restockr-grater',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Cheese_grater.jpg',
       alt: 'A stainless steel kitchen grater'
     }
   },
@@ -27,7 +27,7 @@ const newArrivals: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      seed: 'restockr-blue-seal',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Vaseline_cream.jpg',
       alt: 'A jar of Blue Seal petroleum jelly'
     }
   },
@@ -37,8 +37,8 @@ const newArrivals: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      seed: 'restockr-nescafe',
-      alt: 'A pack of Nescafe Classic coffee sachets'
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Instant_Coffee_Grains_Inside_Jar.jpeg',
+      alt: 'A jar of Nescafe Classic instant coffee'
     }
   },
   {
@@ -47,7 +47,7 @@ const newArrivals: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      seed: 'restockr-custard',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Bird%27s-Custard.jpg',
       alt: 'A tub of Checkers custard powder'
     }
   },
@@ -60,7 +60,7 @@ const featuredByMerchants: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      seed: 'restockr-body-spray',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Boss_Bottled.jpg',
       alt: 'A bottle of Cotton Club body spray'
     }
   },
@@ -70,8 +70,8 @@ const featuredByMerchants: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      seed: 'restockr-crochet-shorts',
-      alt: 'A pair of orange crochet shorts'
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Crochet_clothes.jpg',
+      alt: 'Hands crocheting an orange garment with yarn'
     }
   },
   {
@@ -80,7 +80,7 @@ const featuredByMerchants: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      seed: 'restockr-tote-bag',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Canvas_two-tone_tote_Navy_and_Natural7_%289038437258%29.jpg',
       alt: 'A checkered Korean-style tote bag'
     }
   },
@@ -90,7 +90,7 @@ const featuredByMerchants: ShowcaseProduct[] = [
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      seed: 'restockr-coke-pack',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/770ml_Coca-Cola_Glass_Bottles_in_Taiwan.jpg',
       alt: 'A shrink-wrapped pack of Coca-Cola bottles'
     }
   },

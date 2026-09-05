@@ -1,8 +1,3 @@
-/**
- * Public surface for the auth feature — pages/components call this rather
- * than reaching into useAuthStore() directly, so the store stays an
- * implementation detail that's free to change shape later.
- */
 export function useAuth() {
   const store = useAuthStore()
 
@@ -16,5 +11,10 @@ export function useAuth() {
     signOut: store.signOut,
     forgotPassword: store.forgotPassword,
     resetPassword: store.resetPassword,
+    signUpMerchant: store.signUpMerchant,
+    signInMerchant: store.signInMerchant,
+    signUpRider: store.signUpRider,
+    signInRider: store.signInRider,
+    verifyOtp: store.verifyOtp,
   }
 }

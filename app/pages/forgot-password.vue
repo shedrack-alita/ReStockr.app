@@ -5,7 +5,7 @@ import { forgotPasswordSchema } from '#shared/schemas/auth'
 
 definePageMeta({ layout: 'auth', middleware: 'guest' })
 
-useSeoMeta({ title: 'Reset your password — ReStockr' })
+useSeoMeta({ title: 'ReStockr - Reset your password' })
 
 const auth = useAuth()
 const submittedEmail = ref<string | null>(null)
@@ -34,7 +34,7 @@ function useDifferentEmail() {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <NuxtLink to="/login" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />

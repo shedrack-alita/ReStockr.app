@@ -1,6 +1,13 @@
-/** Public surface for the wishlist feature — not built yet. */
 export function useWishlist() {
   const store = useWishlistStore()
-  // TODO: expose items, has(), toggle().
-  return store
+  const products = useProductsStore()
+
+  const items = computed(() => products.items.filter((p) => store.has(p.id)))
+
+  return {
+    productIds: computed(() => store.productIds),
+    items,
+    has: store.has,
+    toggle: store.toggle,
+  }
 }

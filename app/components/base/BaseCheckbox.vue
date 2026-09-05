@@ -2,7 +2,7 @@
 import { useId } from 'vue'
 
 defineProps<{
-  modelValue: boolean
+  modelValue: boolean | undefined
   error?: string
 }>()
 
@@ -17,7 +17,7 @@ const id = useId()
       <input
         :id="id"
         type="checkbox"
-        :checked="modelValue"
+        :checked="!!modelValue"
         :aria-invalid="!!error"
         class="mt-0.5 size-4 shrink-0 rounded border-border-strong text-green-600 focus-visible:outline-2 focus-visible:outline-focus-ring"
         @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"

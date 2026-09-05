@@ -3,15 +3,9 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { resetPasswordSchema } from '#shared/schemas/auth'
 
-/**
- * No design mock covers this exact screen (Reset Link.png is the "email
- * sent" confirmation, not this "set a new password" landing page a user
- * reaches from that email) — styled to match the same card language as
- * the rest of the auth feature instead.
- */
 definePageMeta({ layout: 'auth', middleware: 'guest' })
 
-useSeoMeta({ title: 'Set a new password — ReStockr' })
+useSeoMeta({ title: 'ReStockr - Set a new password' })
 
 const route = useRoute()
 const auth = useAuth()
@@ -39,7 +33,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <NuxtLink to="/login" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />

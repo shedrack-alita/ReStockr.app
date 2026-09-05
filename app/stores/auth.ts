@@ -1,25 +1,23 @@
 import type {
   AuthUser,
   ForgotPasswordPayload,
+  MerchantSignInPayload,
+  MerchantSignUpPayload,
   ResetPasswordPayload,
+  RiderSignInPayload,
+  RiderSignUpPayload,
   SessionResponse,
   SignInPayload,
   SignUpPayload,
+  VerifyOtpPayload,
 } from '#shared/types/auth'
 
-/**
- * Auth state, backed by server/api/auth/* — currently all stubs (see
- * server/utils/apiError.ts) since there's no real backend yet. The store
- * itself is the real, final shape: once the backend exists, nothing here
- * changes, only the server route implementations do.
- */
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<AuthUser | null>(null)
   const status = ref<'idle' | 'pending' | 'ready'>('idle')
 
   const isSignedIn = computed(() => user.value !== null)
 
-  /** Reads the current session. Safe to call more than once — later calls just refresh. */
   async function fetchSession() {
     status.value = 'pending'
     try {
@@ -61,5 +59,44 @@ export const useAuthStore = defineStore('auth', () => {
     await $fetch('/api/auth/reset-password', { method: 'POST', body: payload })
   }
 
-  return { user, status, isSignedIn, fetchSession, signUp, signIn, signOut, forgotPassword, resetPassword }
+  async function signUpMerchant(payload: MerchantSignUpPayload) {
+    const res = await $fetch<{ user: AuthUser }>('/api/auth/merchant-signup', { method: 'POST', body: payload })
+    user.value = res.user
+  }
+
+  async function signInMerchant(payload: MerchantSignInPayload) {
+    const res = await $fetch<{ user: AuthUser }>('/api/auth/merchant-signin', { method: 'POST', body: payload })
+    user.value = res.user
+  }
+
+  async function signUpRider(payload: RiderSignUpPayload) {
+    const res = await $fetch<{ user: AuthUser }>('/api/auth/rider-signup', { method: 'POST', body: payload })
+    user.value = res.user
+  }
+
+  async function signInRider(payload: RiderSignInPayload) {
+    const res = await $fetch<{ user: AuthUser }>('/api/auth/rider-signin', { method: 'POST', body: payload })
+    user.value = res.user
+  }
+
+  async function verifyOtp(payload: VerifyOtpPayload) {
+    await $fetch('/api/auth/verify-otp', { method: 'POST', body: payload })
+  }
+
+  return {
+    user,
+    status,
+    isSignedIn,
+    fetchSession,
+    signUp,
+    signIn,
+    signOut,
+    forgotPassword,
+    resetPassword,
+    signUpMerchant,
+    signInMerchant,
+    signUpRider,
+    signInRider,
+    verifyOtp,
+  }
 })

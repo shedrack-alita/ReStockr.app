@@ -1,14 +1,5 @@
 import { z } from 'zod'
 
-/**
- * Validation for the auth API contract (shared/types/auth.ts). Used on
- * both sides: the server route handlers validate the request body against
- * these before doing anything else, and the frontend forms use the same
- * schemas via @vee-validate/zod so client and server never disagree about
- * what "valid" means.
- */
-
-/** Shared by signUpSchema and resetPasswordSchema — a reset password must be exactly as strong as a new one. */
 const strongPassword = z
   .string()
   .min(8, 'At least 8 characters')
@@ -35,4 +26,39 @@ export const forgotPasswordSchema = z.object({
 export const resetPasswordSchema = z.object({
   token: z.string().min(1),
   password: strongPassword,
+})
+
+const phoneNumber = z.string().trim().min(7, 'Enter a valid mobile number')
+
+export const merchantSignUpSchema = z.object({
+  businessName: z.string().trim().min(2, 'Enter your business name'),
+  email: z.string().trim().toLowerCase().email('Enter a valid email address'),
+  phone: phoneNumber,
+  category: z.string().trim().min(1, 'Choose what you mostly sell'),
+  password: strongPassword,
+})
+
+export const merchantSignInSchema = z.object({
+  email: z.string().trim().toLowerCase().email('Enter a valid email address'),
+  password: z.string().min(1, 'Enter your password'),
+  rememberMe: z.boolean().optional(),
+})
+
+export const riderSignUpSchema = z.object({
+  name: z.string().trim().min(2, 'Enter your full name, as on your ID'),
+  phone: phoneNumber,
+  vehicle: z.enum(['motorbike', 'tricycle', 'van'], { message: 'Choose your means of delivery' }),
+  password: strongPassword,
+})
+
+export const riderSignInSchema = z.object({
+  phone: phoneNumber,
+  password: z.string().min(1, 'Enter your password'),
+  rememberMe: z.boolean().optional(),
+})
+
+export const verifyOtpSchema = z.object({
+  channel: z.enum(['email', 'phone']),
+  destination: z.string().min(1),
+  code: z.string().length(4, 'Enter the 4-digit code'),
 })
