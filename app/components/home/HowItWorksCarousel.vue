@@ -2,23 +2,23 @@
 const steps = [
   {
     label: 'Merchants Lists Product',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/TV_set_%2846_inch%29_in_self-customized_box_for_sending_via_parcel_service_N.1.jpg',
+    url: '/images/home/howitworks-list.jpg',
   },
   {
     label: 'Customer Shops',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Woman_examining_lamps_in_a_store_while_shopping_for_home_decor.jpg',
+    url: '/images/home/howitworks-shop.jpg',
   },
   {
     label: 'Order & Payment',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Ingenico_iPP350_payment_terminal.jpg',
+    url: '/images/home/howitworks-order.jpg',
   },
   {
     label: 'Rider Picks Up',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/PiaggioDeliveryRodos.JPG',
+    url: '/images/home/howitworks-pickup.jpg',
   },
   {
     label: 'Customer Receives',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/0/09/A_Delivery_Driver_Knocking_on_a_Door_to_Deliver_Packages.jpg',
+    url: '/images/home/howitworks-receive.jpg',
   },
 ]
 </script>

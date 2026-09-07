@@ -32,8 +32,8 @@ const stats = [
 
       <div class="aspect-square w-full overflow-hidden rounded-card bg-gray-100 shadow-xl lg:aspect-[4/3.2]">
         <NuxtImg
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Modern_warehouse_with_pallet_rack_storage_system.jpg"
-          alt="Warehouse shelving stacked with boxed inventory, ready for fulfillment"
+          src="/images/home/warehouse.jpg"
+          alt="Rows of shelving stacked with boxed inventory, ready for fulfillment"
           width="900"
           height="720"
           sizes="90vw sm:480px lg:600px"

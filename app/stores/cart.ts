@@ -49,7 +49,6 @@ export const useCartStore = defineStore('cart', () => {
       quantity: Math.min(quantity, 99),
       maxQuantity: 99,
     })
-    isDrawerOpen.value = true
   }
 
   function updateQuantity(lineId: string, quantity: number) {

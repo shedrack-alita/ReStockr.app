@@ -9,15 +9,15 @@ const onboarding = useOnboardingStore()
 onMounted(() => void products.fetch())
 
 const categoryIcons: Record<string, string> = {
-  'Home Decor': 'lucide:sofa',
   Electronics: 'lucide:monitor-smartphone',
-  Power: 'lucide:zap',
   'Personal Care': 'lucide:sparkles',
-  'Home Appliances': 'lucide:refrigerator',
-  "Women's": 'lucide:shirt',
-  "Men's": 'lucide:shirt',
-  Kiddies: 'lucide:baby',
-  'Office Appliances': 'lucide:printer',
+  Footwear: 'lucide:footprints',
+  Eyewear: 'lucide:glasses',
+  Sportswear: 'lucide:shirt',
+  Bags: 'lucide:shopping-bag',
+  Power: 'lucide:zap',
+  Headwear: 'lucide:crown',
+  Grocery: 'lucide:shopping-basket',
 }
 
 const selected = ref<string[]>(

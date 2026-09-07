@@ -3,95 +3,95 @@ import type { ShowcaseProduct } from '~/types/product'
 
 const categories = [
   'Recommended',
-  'Home Decor',
-  'Kitchen',
   'Electronics',
-  'Beauty',
+  'Personal Care',
+  'Footwear',
+  'Eyewear',
   'Others'
 ]
 
 const newArrivals: ShowcaseProduct[] = [
   {
-    name: 'Grater',
+    name: 'Wireless Earbuds',
     price: 3500,
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Cheese_grater.jpg',
-      alt: 'A stainless steel kitchen grater'
+      url: '/images/showcase/airpods-style-earbuds.jpg',
+      alt: 'A pair of white wireless earbuds with a chrome charging case'
     }
   },
   {
-    name: 'Blue Seal',
+    name: 'Skate Sneakers',
     price: 3500,
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Vaseline_cream.jpg',
-      alt: 'A jar of Blue Seal petroleum jelly'
+      url: '/images/showcase/vans-skate-sneakers.jpg',
+      alt: 'A maroon and white skate sneaker'
     }
   },
   {
-    name: 'Nescafe Classic',
+    name: 'Eternal Blue Perfume & Watch Set',
     price: 3500,
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Instant_Coffee_Grains_Inside_Jar.jpeg',
-      alt: 'A jar of Nescafe Classic instant coffee'
+      url: '/images/showcase/perfume-watch-set.jpg',
+      alt: 'A perfume bottle labelled Eternal Blue next to a purple wristwatch'
     }
   },
   {
-    name: 'Checkers Custard',
+    name: 'Noise Isolating Earbuds',
     price: 3500,
     comparePrice: 4000,
     status: 'In Stock',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Bird%27s-Custard.jpg',
-      alt: 'A tub of Checkers custard powder'
+      url: '/images/showcase/earbuds-blueberries.jpg',
+      alt: 'An open case of white wireless earbuds resting on fresh blueberries'
     }
   },
 ]
 
 const featuredByMerchants: ShowcaseProduct[] = [
   {
-    name: 'Cotton Club Body Spray',
+    name: 'Studio Headphones',
     price: 3500,
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Boss_Bottled.jpg',
-      alt: 'A bottle of Cotton Club body spray'
+      url: '/images/showcase/rg-over-ear-headphones.jpg',
+      alt: 'Black over-ear studio headphones with a coiled cable'
     }
   },
   {
-    name: 'Crochet Shorts',
+    name: 'Bass Boost Headphones',
     price: 3500,
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Crochet_clothes.jpg',
-      alt: 'Hands crocheting an orange garment with yarn'
+      url: '/images/showcase/urbanista-headphones.jpg',
+      alt: 'Red over-ear wireless headphones'
     }
   },
   {
-    name: 'Korean Tote Bag',
+    name: 'Midnight Oud Perfume',
     price: 3500,
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Canvas_two-tone_tote_Navy_and_Natural7_%289038437258%29.jpg',
-      alt: 'A checkered Korean-style tote bag'
+      url: '/images/showcase/midnight-oud-perfume.jpg',
+      alt: 'A dark square perfume bottle resting on a wooden branch'
     }
   },
   {
-    name: 'Coca-Cola Pack',
+    name: 'Signature Perfume',
     price: 3500,
     comparePrice: 4000,
     status: 'Few Units Left',
     image: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/770ml_Coca-Cola_Glass_Bottles_in_Taiwan.jpg',
-      alt: 'A shrink-wrapped pack of Coca-Cola bottles'
+      url: '/images/showcase/signature-perfume.jpg',
+      alt: 'A black perfume bottle with a faceted crystal cap'
     }
   },
 ]

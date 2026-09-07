@@ -35,19 +35,19 @@ function orderFromProduct(slug: string, overrides: Omit<Order, 'lines' | 'subtot
 }
 
 export const mockOrders: Order[] = [
-  orderFromProduct('android-smart-tv', {
+  orderFromProduct('wireless-earbuds', {
     id: 'order-rr475686',
     reference: 'RR475686',
     status: 'delivered',
     placedAt: '2026-09-01T09:00:00.000Z',
   }),
-  orderFromProduct('smart-watch-series-9', {
+  orderFromProduct('nike-dunk-low', {
     id: 'order-rr475641',
     reference: 'RR475641',
     status: 'in-transit',
     placedAt: '2026-09-11T09:00:00.000Z',
   }),
-  orderFromProduct('noise-cancelling-headphones', {
+  orderFromProduct('hugo-boss-bottled-night', {
     id: 'order-rr475602',
     reference: 'RR475602',
     status: 'processing',

@@ -55,7 +55,6 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['picsum.photos', 'fastly.picsum.photos', 'img.icons8.com'],
     quality: 80,
     screens: {
       xs: 320,

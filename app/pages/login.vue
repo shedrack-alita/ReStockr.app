@@ -25,7 +25,7 @@ const onSubmit = handleSubmit(async (values) => {
   submitError.value = null
   try {
     await auth.signIn(values)
-    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/marketplace'
+    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/account'
     await navigateTo(redirect)
   } catch (err) {
     submitError.value = getErrorMessage(err)
