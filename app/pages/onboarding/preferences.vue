@@ -45,9 +45,9 @@ function handleContinue() {
 
 <template>
   <div class="w-full max-w-lg">
-    <OnboardingSteps current="preferences" class="mb-4" />
-
     <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+      <OnboardingSteps current="preferences" class="mb-6" />
+
       <p class="text-sm font-bold text-green-600">Set up Preferences</p>
       <h1 class="font-display text-2xl font-bold text-text-primary sm:text-3xl">What should we show you first?</h1>
 

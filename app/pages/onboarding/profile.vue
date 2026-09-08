@@ -35,9 +35,9 @@ function handleSubmit() {
 
 <template>
   <div class="w-full max-w-lg">
-    <OnboardingSteps current="profile" class="mb-4" />
-
     <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+      <OnboardingSteps current="profile" class="mb-6" />
+
       <h1 class="font-display text-2xl font-bold text-text-primary">Complete your profile</h1>
       <p class="mt-1 text-sm text-text-secondary">Let's get your account ready for a better shopping experience</p>
 

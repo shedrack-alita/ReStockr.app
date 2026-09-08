@@ -39,7 +39,7 @@ export const mockProducts: Product[] = [
         alt: 'A pair of black wireless earbuds resting in their charging case with an LED battery display',
       },
     ],
-    heroImage: { url: '/images/products/wireless-earbuds.jpg', alt: 'Black wireless earbuds and charging case' },
+    heroImage: { url: '/images/products/verca-eau-de-parfum-3d.jpg', alt: 'Black wireless earbuds and charging case' },
     badge: 'new',
   }),
   product({
@@ -56,7 +56,7 @@ export const mockProducts: Product[] = [
         alt: 'Black Realme wireless earbuds in an open yellow-lined charging case',
       },
     ],
-    heroImage: { url: '/images/products/realme-buds-air.jpg', alt: 'Realme wireless earbuds and case' },
+    heroImage: { url: '/images/products/realme-buds-air-3d.jpg', alt: 'Realme wireless earbuds and case' },
     badge: 'new',
   }),
   product({
@@ -89,7 +89,7 @@ export const mockProducts: Product[] = [
         alt: 'A black mirrorless camera with a zoom lens attached',
       },
     ],
-    heroImage: { url: '/images/products/mirrorless-camera.jpg', alt: 'Mirrorless camera with zoom lens' },
+    heroImage: { url: '/images/products/mirrorless-camera-3d.jpg', alt: 'Mirrorless camera with zoom lens' },
     badge: 'new',
   }),
   product({
@@ -138,7 +138,7 @@ export const mockProducts: Product[] = [
         alt: 'Three white skincare bottles and a jar with rose-gold caps',
       },
     ],
-    heroImage: { url: '/images/products/rose-gold-skincare-set.jpg', alt: 'Rose-gold skincare bottle and jar set' },
+    heroImage: { url: '/images/products/rose-gold-skincare-set-3d.jpg', alt: 'Rose-gold skincare bottle and jar set' },
     badge: 'new',
   }),
   product({

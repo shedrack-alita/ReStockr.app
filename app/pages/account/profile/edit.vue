@@ -91,8 +91,24 @@ const onSubmit = handleSubmit((values) => {
         <div class="mt-4 grid gap-4 sm:grid-cols-2">
           <BaseInput v-model="firstName" v-bind="firstNameAttrs" label="First Name" autocomplete="given-name" :error="errors.firstName" />
           <BaseInput v-model="lastName" v-bind="lastNameAttrs" label="Last Name" autocomplete="family-name" :error="errors.lastName" />
-          <BaseInput v-model="phone" v-bind="phoneAttrs" label="Phone Number" type="tel" autocomplete="tel" :error="errors.phone" />
-          <BaseInput v-model="email" v-bind="emailAttrs" label="Email address" type="email" autocomplete="email" :error="errors.email">
+          <BaseInput
+            v-model="phone"
+            v-bind="phoneAttrs"
+            label="Phone Number"
+            type="tel"
+            autocomplete="tel"
+            :error="errors.phone"
+            class="sm:col-span-2"
+          />
+          <BaseInput
+            v-model="email"
+            v-bind="emailAttrs"
+            label="Email address"
+            type="email"
+            autocomplete="email"
+            :error="errors.email"
+            class="sm:col-span-2"
+          >
             <template #label-extra>
               <span class="flex items-center gap-1 rounded-full bg-green-950 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
                 <Icon name="lucide:check" class="size-3" aria-hidden="true" />

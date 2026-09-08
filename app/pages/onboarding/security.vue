@@ -13,9 +13,9 @@ function finish(passkeyEnabled: boolean) {
 
 <template>
   <div class="w-full max-w-lg">
-    <OnboardingSteps current="security" class="mb-4" />
-
     <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+      <OnboardingSteps current="security" class="mb-6" />
+
       <p class="text-sm font-bold text-green-600">Set up - Security</p>
       <h1 class="font-display text-2xl font-bold text-text-primary sm:text-3xl">Faster checkout, less typing.</h1>
       <p class="mt-2 text-sm text-text-secondary">Use your device biometrics instead of re-entering your password.</p>

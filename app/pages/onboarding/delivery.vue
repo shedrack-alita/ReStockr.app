@@ -40,9 +40,9 @@ function handleSkip() {
 
 <template>
   <div class="w-full max-w-lg">
-    <OnboardingSteps current="delivery" class="mb-4" />
-
     <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+      <OnboardingSteps current="delivery" class="mb-6" />
+
       <p class="text-sm font-bold text-green-600">Set up - Delivery</p>
       <h1 class="font-display text-2xl font-bold text-text-primary sm:text-3xl">Where should orders go?</h1>
       <p class="mt-2 text-sm text-text-secondary">Optional - but saving it now means one-tap checkout later.</p>

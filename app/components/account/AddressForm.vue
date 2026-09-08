@@ -67,11 +67,13 @@ function handleSubmit() {
 
       <BaseInput v-model="form.apartment" label="Apartment, suite no etc (optional)" class="sm:col-span-2" />
 
-      <BaseInput v-model="form.city" label="City" autocomplete="address-level2" :error="errors.city" />
-      <BaseSelect v-model="form.state" label="State" :options="stateOptions" />
-      <BaseInput v-model="form.postalCode" label="Postal Code" autocomplete="postal-code" :error="errors.postalCode" />
+      <div class="grid gap-4 sm:col-span-2 sm:grid-cols-3">
+        <BaseInput v-model="form.city" label="City" autocomplete="address-level2" :error="errors.city" />
+        <BaseSelect v-model="form.state" label="State" :options="stateOptions" />
+        <BaseInput v-model="form.postalCode" label="Postal Code" autocomplete="postal-code" :error="errors.postalCode" />
+      </div>
 
-      <BaseInput v-model="form.country" label="Country" autocomplete="country-name" />
+      <BaseInput v-model="form.country" label="Country" autocomplete="country-name" class="sm:col-span-2" />
     </div>
 
     <BaseCheckbox v-model="isDefault" class="mt-4">Set as default address</BaseCheckbox>

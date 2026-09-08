@@ -14,10 +14,35 @@ const currentIndex = computed(() => steps.findIndex((s) => s.key === props.curre
 </script>
 
 <template>
-  <ol class="flex items-center justify-end gap-2 text-sm sm:gap-3" aria-label="Onboarding progress">
-    <li v-for="(step, i) in steps" :key="step.key" class="flex items-center gap-1.5">
-      <span class="size-1.5 rounded-full" :class="i <= currentIndex ? 'bg-text-primary' : 'bg-border-strong'" aria-hidden="true" />
-      <span :class="i === currentIndex ? 'font-bold text-text-primary' : 'text-text-muted'">{{ step.label }}</span>
-    </li>
-  </ol>
+  <div class="flex items-start" aria-label="Onboarding progress">
+    <template v-for="(step, i) in steps" :key="step.key">
+      <div class="flex flex-col items-center gap-1.5">
+        <span
+          class="flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold sm:size-9 sm:text-sm"
+          :class="
+            i < currentIndex
+              ? 'bg-green-600 text-white'
+              : i === currentIndex
+                ? 'bg-gray-950 text-white'
+                : 'bg-gray-200 text-text-secondary'
+          "
+        >
+          <Icon v-if="i < currentIndex" name="lucide:check" class="size-4" aria-hidden="true" />
+          <template v-else>{{ i + 1 }}</template>
+        </span>
+        <span
+          class="text-[11px] font-semibold sm:text-xs"
+          :class="i <= currentIndex ? 'text-text-primary' : 'text-text-muted'"
+        >
+          {{ step.label }}
+        </span>
+      </div>
+      <div
+        v-if="i < steps.length - 1"
+        class="mt-4 h-0.5 flex-1 rounded-full sm:mt-[18px]"
+        :class="i < currentIndex ? 'bg-green-600' : 'bg-border-strong'"
+        aria-hidden="true"
+      />
+    </template>
+  </div>
 </template>

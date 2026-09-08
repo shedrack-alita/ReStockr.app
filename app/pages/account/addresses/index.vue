@@ -79,18 +79,20 @@ function confirmDelete() {
 
     <div v-if="pendingDeleteAddress" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-950/50 p-4" @click.self="pendingDeleteId = null">
       <div class="w-full max-w-sm rounded-card bg-white p-6 text-center">
-        <span class="mx-auto flex size-12 items-center justify-center rounded-full bg-danger-surface text-danger">
-          <Icon name="lucide:trash-2" class="size-5" aria-hidden="true" />
+        <span class="mx-auto flex size-16 items-center justify-center rounded-full bg-gray-100">
+          <span class="flex size-11 items-center justify-center rounded-field bg-gold-500 text-gray-950">
+            <Icon name="lucide:alert-triangle" class="size-5" aria-hidden="true" />
+          </span>
         </span>
         <h2 class="mt-4 font-display text-lg font-bold text-text-primary">Delete this address?</h2>
         <p class="mt-1 text-sm text-text-secondary">
-          "{{ pendingDeleteAddress.label }}" will be removed from your saved addresses. This can't be undone.
+          Are you sure, you want to remove this saved address? This action cannot be undone.
         </p>
-        <div class="mt-5 flex gap-3">
-          <BaseButton variant="ghost" class="flex-1" @click="pendingDeleteId = null">Cancel</BaseButton>
-          <button type="button" class="flex-1 rounded-full bg-danger px-6 py-3 text-base font-semibold text-white hover:bg-red-700" @click="confirmDelete">
-            Delete
+        <div class="mt-5 flex flex-col gap-3">
+          <button type="button" class="rounded-full bg-danger px-6 py-3 text-base font-semibold text-white hover:bg-red-700" @click="confirmDelete">
+            Delete address
           </button>
+          <BaseButton variant="ghost" @click="pendingDeleteId = null">Cancel</BaseButton>
         </div>
       </div>
     </div>
