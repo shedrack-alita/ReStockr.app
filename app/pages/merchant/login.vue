@@ -24,7 +24,7 @@ const onSubmit = handleSubmit(async (values) => {
   submitError.value = null
   try {
     await auth.signInMerchant(values)
-    await navigateTo('/marketplace')
+    await navigateTo('/merchant/dashboard')
   } catch (err) {
     submitError.value = getErrorMessage(err)
   }
@@ -34,7 +34,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <div class="w-full max-w-md">
     <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
-      <NuxtLink to="/welcome" class="flex items-center gap-2 text-sm font-bold text-text-primary">
+      <NuxtLink to="/merchant/welcome" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />
         </span>

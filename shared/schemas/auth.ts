@@ -31,10 +31,9 @@ export const resetPasswordSchema = z.object({
 const phoneNumber = z.string().trim().min(7, 'Enter a valid mobile number')
 
 export const merchantSignUpSchema = z.object({
-  businessName: z.string().trim().min(2, 'Enter your business name'),
+  fullName: z.string().trim().min(2, 'Enter your full name'),
   email: z.string().trim().toLowerCase().email('Enter a valid email address'),
   phone: phoneNumber,
-  category: z.string().trim().min(1, 'Choose what you mostly sell'),
   password: strongPassword,
 })
 

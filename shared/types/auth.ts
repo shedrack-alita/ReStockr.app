@@ -35,12 +35,11 @@ export interface ResetPasswordPayload {
   password: string
 }
 
-/** See ReStockr UI/Authentication Pages/Merchant Registration Flow 1&2.png. */
+/** See /Merchant feature/2. Merchant Registration.png — store details are collected later, in onboarding. */
 export interface MerchantSignUpPayload {
-  businessName: string
+  fullName: string
   email: string
   phone: string
-  category: string
   password: string
 }
 

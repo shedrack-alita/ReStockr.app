@@ -1,11 +1,16 @@
 <script setup lang="ts">
 const audiences = [
-  { key: 'customers', label: 'Customers' },
-  { key: 'merchants', label: 'Merchants' },
-  { key: 'riders', label: 'Riders' },
+  { key: 'customers', label: 'Customers', to: '/welcome' },
+  { key: 'merchants', label: 'Merchants', to: '/merchant/welcome' },
+  { key: 'riders', label: 'Riders', to: '/rider/register' },
 ] as const
 
-const activeAudience = ref<(typeof audiences)[number]['key']>('customers')
+const route = useRoute()
+const activeAudience = computed<(typeof audiences)[number]['key']>(() => {
+  if (route.path.startsWith('/merchant')) return 'merchants'
+  if (route.path.startsWith('/rider')) return 'riders'
+  return 'customers'
+})
 const isMenuOpen = ref(false)
 
 const auth = useAuth()
@@ -69,18 +74,17 @@ async function handleSignOut() {
         role="tablist"
         aria-label="Browsing as"
       >
-        <button
+        <NuxtLink
           v-for="audience in audiences"
           :key="audience.key"
-          type="button"
+          :to="audience.to"
           role="tab"
           :aria-selected="activeAudience === audience.key"
-          class="flex-1 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-white sm:flex-none sm:px-4 sm:text-xs"
+          class="flex-1 rounded-full px-3 py-1.5 text-center text-[11px] font-bold uppercase tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-white sm:flex-none sm:px-4 sm:text-xs"
           :class="activeAudience === audience.key ? 'bg-gold-500 text-gray-950' : 'bg-black text-white hover:bg-gray-800'"
-          @click="activeAudience = audience.key"
         >
           {{ audience.label }}
-        </button>
+        </NuxtLink>
       </div>
     </div>
 

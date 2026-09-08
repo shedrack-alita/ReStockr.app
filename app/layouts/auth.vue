@@ -23,11 +23,11 @@ const leftPanelContent: Record<string, { headline: string[]; subtext: string }> 
     headline: ['Restock Everything', 'at One Place.'],
     subtext: 'A place where you can get all you want from the store to your doorstep.',
   },
-  'merchant-login': {
-    headline: ["Today's queue is", 'waiting.'],
-    subtext: 'Accept, pack and hand off orders without leaving the counter.',
+  'merchant-welcome': {
+    headline: ['Restock Everything', 'at One Place.'],
+    subtext: 'A place where you can get all you want from the store to your doorstep.',
   },
-  'merchant-register': {
+  'merchant-login': {
     headline: ["Today's queue is", 'waiting.'],
     subtext: 'Accept, pack and hand off orders without leaving the counter.',
   },
