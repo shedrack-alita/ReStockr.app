@@ -27,7 +27,7 @@ const activeImage = computed(() => props.images[activeIndex.value] ?? props.imag
         v-for="(image, i) in images"
         :key="image.url"
         type="button"
-        class="size-16 shrink-0 overflow-hidden rounded-field border-2 transition-colors"
+        class="size-16 shrink-0 overflow-hidden rounded-field border-1 transition-colors"
         :class="i === activeIndex ? 'border-green-500' : 'border-transparent hover:border-border-strong'"
         :aria-label="`Show image ${i + 1} of ${productName}`"
         :aria-current="i === activeIndex"

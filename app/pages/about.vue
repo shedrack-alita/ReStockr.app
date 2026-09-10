@@ -29,7 +29,7 @@ const audiences = [
 <template>
   <div>
     <section class="relative text-white">
-      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-green-900 via-green-950 to-green-950" aria-hidden="true" />
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#091d05] via-[#184c0e] to-[#143d0c]" aria-hidden="true" />
       <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
         <h1 class="font-display text-4xl font-bold leading-[1.08] sm:text-5xl">About ReStockr</h1>
         <p class="mx-auto mt-4 max-w-xl text-white/85">

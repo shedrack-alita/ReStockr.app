@@ -40,7 +40,7 @@ async function handleLogout() {
 </script>
 
 <template>
-  <div class="flex min-h-dvh flex-col bg-gradient-to-b from-green-900 via-green-950 to-green-950 lg:flex-row">
+  <div class="flex min-h-dvh flex-col bg-gradient-to-b from-[#091d05] via-[#184c0e] to-[#143d0c] lg:flex-row">
     <aside class="flex shrink-0 flex-col px-4 py-6 text-white sm:px-6 lg:w-72 lg:py-8">
       <NuxtLink to="/merchant/dashboard" class="flex items-center gap-2" aria-label="ReStockr merchant home">
         <AppLogo tone="dark" />
@@ -83,14 +83,17 @@ async function handleLogout() {
         </template>
       </nav>
 
-      <div class="flex items-center gap-3 rounded-field bg-white/10 p-3">
-        <span class="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-gold-400 to-green-600 text-sm font-bold text-white">
-          {{ business.ownerName.split(' ').map((n) => n[0]).join('') }}
+      <div class="flex items-center gap-3 rounded-field border border-white/15 bg-white/5 p-3">
+        <span class="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-gold-400 to-green-600">
+          <Icon name="lucide:user-round" class="size-5 text-white" aria-hidden="true" />
         </span>
         <div class="min-w-0">
           <p class="truncate text-sm font-bold text-white">{{ business.ownerName }}</p>
-          <span v-if="business.verified" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-green-300">
-            <Icon name="lucide:check-circle" class="size-3" aria-hidden="true" />
+          <span
+            v-if="business.verified"
+            class="mt-1 flex w-fit items-center gap-1 rounded-full bg-green-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white"
+          >
+            <Icon name="lucide:check" class="size-2.5" aria-hidden="true" />
             Verified Merchant
           </span>
         </div>
@@ -107,7 +110,7 @@ async function handleLogout() {
     </aside>
 
     <main class="flex-1 p-3 pb-6 sm:p-4 lg:py-6 lg:pr-6">
-      <div class="min-h-full rounded-card bg-surface-card p-5 sm:p-8">
+      <div class="min-h-full rounded-card border-1 border-white bg-surface-card p-5 sm:p-8">
         <slot />
       </div>
     </main>

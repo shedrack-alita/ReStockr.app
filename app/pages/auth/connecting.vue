@@ -21,7 +21,7 @@ onMounted(() => {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 text-center shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 text-center shadow-xl sm:p-8">
       <template v-if="!connected">
         <span class="mx-auto flex size-24 items-center justify-center rounded-full bg-gray-200">
           <Icon :name="provider.icon" class="size-11" aria-hidden="true" />

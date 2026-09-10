@@ -6,7 +6,7 @@ useSeoMeta({ title: 'ReStockr - Browsing as guest' })
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <p class="text-xs font-bold uppercase tracking-wide text-green-600">Browsing as guest</p>
       <h1 class="mt-1 font-display text-3xl font-bold text-text-primary">Have a look around.</h1>
       <p class="mt-3 text-sm text-text-secondary">

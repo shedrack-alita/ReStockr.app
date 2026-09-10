@@ -13,7 +13,7 @@ async function handleLogout() {
 
 <template>
   <div class="w-full max-w-lg">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 text-center shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 text-center shadow-xl sm:p-8">
       <span class="mx-auto flex size-24 items-center justify-center rounded-full bg-green-100">
         <Icon name="lucide:check" class="size-11 text-green-700" aria-hidden="true" />
       </span>

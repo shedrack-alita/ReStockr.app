@@ -2,37 +2,68 @@
 import type { Order } from '#shared/types/order'
 
 /** Order confirmation, shown after checkout.placeOrder() succeeds. */
-defineProps<{ order: Order }>()
+const props = defineProps<{ order: Order }>()
+
+const auth = useAuth()
+
+const placedAt = computed(() => new Date(props.order.placedAt))
+function formatStep(offsetDays = 0) {
+  const d = new Date(placedAt.value)
+  d.setDate(d.getDate() + offsetDays)
+  return d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+}
 </script>
 
 <template>
-  <div class="mx-auto max-w-lg py-10 text-center">
-    <span class="mx-auto flex size-16 items-center justify-center rounded-full bg-green-50 text-green-600">
-      <Icon name="lucide:check" class="size-8" aria-hidden="true" />
-    </span>
-    <h1 class="mt-5 font-display text-2xl font-bold text-text-primary sm:text-3xl">Order placed!</h1>
-    <p class="mt-2 text-sm text-text-secondary">
-      Your order <span class="font-semibold text-text-primary">#{{ order.reference }}</span> has been confirmed and is being prepared.
-    </p>
+  <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+    <div class="text-center lg:pt-10 lg:text-left">
+      <span class="mx-auto flex size-24 items-center justify-center rounded-full bg-green-700 text-white lg:mx-0">
+        <Icon name="lucide:check" class="size-11" aria-hidden="true" />
+      </span>
+      <h1 class="mt-6 font-display text-3xl font-bold text-text-primary sm:text-4xl">Order Placed Successfully</h1>
+      <p class="mx-auto mt-3 max-w-sm text-text-secondary lg:mx-0">
+        Thank you for your order. We've sent a confirmation email to
+        <span class="font-semibold text-text-primary">{{ auth.user.value?.email ?? 'yourname@gmail.com' }}</span>
+      </p>
 
-    <div class="mt-6 rounded-card bg-surface-card p-5 text-left text-sm">
-      <div class="flex items-center justify-between">
-        <span class="text-text-secondary">Total paid</span>
-        <span class="font-bold text-text-primary">{{ formatCurrency(order.total) }}</span>
-      </div>
-      <div class="mt-2 flex items-center justify-between">
-        <span class="text-text-secondary">Payment method</span>
-        <span class="font-semibold text-text-primary capitalize">{{ order.paymentMethod.replace('-', ' ') }}</span>
-      </div>
-      <div class="mt-2 flex items-center justify-between">
-        <span class="text-text-secondary">Delivering to</span>
-        <span class="max-w-[60%] text-right font-semibold text-text-primary">{{ order.shippingAddress.addressLine }}, {{ order.shippingAddress.city }}</span>
+      <p class="mt-6 text-text-muted">Order Number: <span class="font-semibold text-text-primary">#{{ order.reference }}</span></p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+        <BaseButton :to="`/orders/${order.id}`" variant="dark" size="lg">View order details</BaseButton>
+        <BaseButton to="/marketplace" variant="outline" size="lg" class="text-text-primary">Continue Shopping</BaseButton>
       </div>
     </div>
 
-    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-      <BaseButton to="/marketplace" variant="primary">Continue shopping</BaseButton>
-      <BaseButton to="/orders" variant="ghost">View my orders</BaseButton>
+    <div class="rounded-card bg-surface-card p-6 sm:p-8">
+      <h2 class="font-display text-lg font-bold text-text-primary">What's next?</h2>
+
+      <ol class="relative mt-5 space-y-8 border-l border-border-strong pl-6">
+        <li class="relative">
+          <span class="absolute -left-[29px] top-0.5 size-3 rounded-full border-2 border-text-primary bg-surface-card" aria-hidden="true" />
+          <p class="font-display text-base font-bold text-text-primary">Order Confirmed</p>
+          <p class="text-sm text-text-muted">{{ formatStep(0) }}</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[29px] top-0.5 size-3 rounded-full border-2 border-text-primary bg-surface-card" aria-hidden="true" />
+          <p class="font-display text-base font-bold text-text-primary">Processing</p>
+          <p class="text-sm text-text-muted">We're preparing your items</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[29px] top-0.5 size-3 rounded-full border-2 border-text-primary bg-surface-card" aria-hidden="true" />
+          <div class="flex flex-wrap items-center gap-2">
+            <p class="font-display text-base font-bold text-text-primary">Out for Delivery</p>
+            <NuxtLink :to="`/orders/${order.id}`" class="rounded-full bg-white px-3 py-1 text-xs font-bold text-text-primary ring-1 ring-border-subtle hover:bg-gray-100">
+              Track here
+            </NuxtLink>
+          </div>
+          <p class="text-sm text-text-muted">You'll get a tracking link soon.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[29px] top-0.5 size-3 rounded-full border-2 border-text-primary bg-surface-card" aria-hidden="true" />
+          <p class="font-display text-base font-bold text-text-primary">Delivered</p>
+          <p class="text-sm text-text-muted">Estimated {{ formatStep(1) }} – {{ formatStep(4) }}</p>
+        </li>
+      </ol>
     </div>
   </div>
 </template>

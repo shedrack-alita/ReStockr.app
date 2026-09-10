@@ -12,7 +12,7 @@ const merchants = [
     blurb:
       "Merchant of the week, bringing a wonderful selection of quality items to ReStockr customers. With an impressive 78% sales rate, Grace continues to stand out for quality products and excellent customer service.",
     icon: 'lucide:user-round',
-    ring: 'bg-pink-500/20 text-pink-100',
+    ring: 'bg-gold-500/20 text-gold-100',
   },
 ]
 </script>

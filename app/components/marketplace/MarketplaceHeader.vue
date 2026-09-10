@@ -81,13 +81,13 @@ function handleSearchSubmit() {
             </span>
           </button>
 
-          <button
-            type="button"
+          <NuxtLink
+            to="/account/notifications"
             aria-label="Notifications"
             class="hidden size-10 items-center justify-center rounded-full bg-gold-500 text-gray-950 transition-colors hover:bg-gold-400 sm:flex"
           >
             <Icon name="lucide:bell" class="size-4.5" aria-hidden="true" />
-          </button>
+          </NuxtLink>
 
           <div class="relative hidden sm:block">
             <button
@@ -138,9 +138,13 @@ function handleSearchSubmit() {
         </div>
 
         <div class="hidden items-center gap-6 text-xs font-bold uppercase tracking-wide sm:flex">
-          <a href="#faq" class="hover:text-gold-300">FAQ</a>
-          <a href="#about" class="hover:text-gold-300">About us</a>
-          <a href="#contact" class="hover:text-gold-300">Contact</a>
+          <NuxtLink to="/welcome" class="hover:text-gold-300">Customers</NuxtLink>
+          <NuxtLink to="/merchant/welcome" class="hover:text-gold-300">Merchants</NuxtLink>
+          <NuxtLink to="/rider/register" class="hover:text-gold-300">Riders</NuxtLink>
+          <NuxtLink to="/enterprise" class="hover:text-gold-300">Enterprise</NuxtLink>
+          <a href="/#faq" class="hover:text-gold-300">FAQ</a>
+          <NuxtLink to="/about" class="hover:text-gold-300">About us</NuxtLink>
+          <a href="mailto:support@restockr.co" class="hover:text-gold-300">Contact</a>
         </div>
       </div>
     </nav>

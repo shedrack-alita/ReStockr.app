@@ -13,7 +13,7 @@ function handleStartShopping() {
 
 <template>
   <div class="w-full max-w-lg">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <p class="text-sm font-bold text-green-600">ALL SET</p>
       <h1 class="font-display text-4xl font-bold text-text-primary">You're all set.</h1>
       <p class="mt-3 text-sm text-text-secondary">

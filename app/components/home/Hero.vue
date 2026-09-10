@@ -5,11 +5,6 @@
 <template>
   <section class="relative overflow-hidden text-white">
     <div
-      class="absolute inset-0 -z-10 bg-gradient-to-b from-green-900 via-green-950 to-green-950"
-      aria-hidden="true"
-    />
-
-    <div
       class="mx-auto max-w-4xl px-4 pb-8 pt-10 text-center sm:px-6 sm:pb-12 sm:pt-16"
     >
       <h1
@@ -31,7 +26,7 @@
 
       <NuxtLink
         to="/marketplace"
-        class="mt-6 inline-flex items-center justify-center rounded-full border-2 border-white/70 px-8 py-3 text-sm font-bold uppercase tracking-wide transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+        class="mt-6 inline-flex items-center justify-center rounded-full border-1 border-white/70 px-8 py-3 text-sm font-bold uppercase tracking-wide transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
       >
         Explore
       </NuxtLink>

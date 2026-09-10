@@ -45,7 +45,7 @@ function handleContinue() {
 
 <template>
   <div class="w-full max-w-lg">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <OnboardingSteps current="preferences" class="mb-6" />
 
       <p class="text-sm font-bold text-green-600">Set up Preferences</p>

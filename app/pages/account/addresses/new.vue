@@ -4,10 +4,12 @@ definePageMeta({ layout: 'account' })
 useSeoMeta({ title: 'ReStockr - Add New Address' })
 
 const user = useUserStore()
+const route = useRoute()
+const redirect = computed(() => (typeof route.query.redirect === 'string' ? route.query.redirect : '/account/addresses'))
 
 function handleSubmit(value: Parameters<typeof user.addAddress>[0]) {
   user.addAddress(value)
-  navigateTo('/account/addresses')
+  navigateTo(redirect.value)
 }
 </script>
 

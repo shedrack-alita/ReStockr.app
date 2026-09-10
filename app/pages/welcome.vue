@@ -6,7 +6,7 @@ useSeoMeta({ title: 'ReStockr - Welcome' })
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 text-center shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 text-center shadow-xl sm:p-8">
       <h1 class="font-display text-2xl font-bold text-text-primary">Get Started as a</h1>
       <p class="font-display text-4xl font-extrabold text-green-700 sm:text-5xl">Customer</p>
       <p class="mx-auto mt-3 max-w-xs text-sm text-text-secondary">

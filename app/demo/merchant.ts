@@ -5,6 +5,8 @@ export const mockMerchantBusiness = {
   rating: 4.98,
   verified: true,
   addressLine: '186 Garki Road, Suite C, Abuja',
+  shortAddress: '186 Garki Road',
+  pendingOrdersCount: 3,
   contactEmail: 'isaac.greene@restockr.com',
   businessHours: 'Mon – Sat: 08:00 AM - 18:00 PM',
   acceptingOrders: true,

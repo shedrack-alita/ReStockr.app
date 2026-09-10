@@ -3,6 +3,7 @@ export interface CartLine {
   productId: string
   slug: string
   name: string
+  merchantName: string
   image: import('./product').ProductImage
   unitPrice: number
   comparePrice: number

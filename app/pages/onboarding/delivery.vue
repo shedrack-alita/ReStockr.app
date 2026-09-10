@@ -40,7 +40,7 @@ function handleSkip() {
 
 <template>
   <div class="w-full max-w-lg">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <OnboardingSteps current="delivery" class="mb-6" />
 
       <p class="text-sm font-bold text-green-600">Set up - Delivery</p>

@@ -31,10 +31,10 @@ function toggleStatus(id: string) {
       </BaseButton>
     </div>
 
-    <div class="mt-6 overflow-x-auto rounded-card bg-white">
+    <div class="mt-6 overflow-x-auto rounded-card border-1 border-white bg-surface-card shadow-md">
       <table class="w-full min-w-[640px] text-left text-sm">
         <thead>
-          <tr class="border-b border-border-subtle text-xs font-bold uppercase tracking-wide text-text-muted">
+          <tr class="rounded-card border-1 border-white bg-surface-card text-xs font-bold uppercase tracking-wide text-text-muted">
             <th class="px-5 py-4">Category Name</th>
             <th class="px-5 py-4">Description</th>
             <th class="px-5 py-4">Status</th>

@@ -144,7 +144,7 @@ const savings = computed(() => {
     </div>
 
     <div class="mt-6 grid gap-4 lg:grid-cols-[240px_1fr]">
-      <div class="space-y-2 rounded-card bg-white p-3">
+      <div class="space-y-2 rounded-card border-1 border-white bg-surface-card shadow-md p-3">
         <button
           v-for="(step, i) in steps"
           :key="step.key"
@@ -165,7 +165,7 @@ const savings = computed(() => {
         </button>
       </div>
 
-      <div class="rounded-card bg-white p-6">
+      <div class="rounded-card border-1 border-white bg-surface-card shadow-md p-6">
         <!-- Step 1: Basic Information -->
         <template v-if="currentStep === 'basic'">
           <h2 class="font-display text-lg font-bold text-text-primary">Basic Information</h2>
@@ -198,7 +198,7 @@ const savings = computed(() => {
 
           <div class="mt-4 grid gap-4 sm:grid-cols-2">
             <label
-              class="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-field border-2 border-dashed border-border-strong bg-surface-input/40 p-8 text-center hover:bg-surface-input/60"
+              class="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-field border-1 border-dashed border-border-strong bg-surface-input/40 p-8 text-center hover:bg-surface-input/60"
             >
               <Icon name="lucide:upload" class="size-6 text-text-secondary" aria-hidden="true" />
               <span class="text-sm text-text-secondary">Drag & drop images here or</span>

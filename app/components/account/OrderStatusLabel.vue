@@ -4,18 +4,20 @@ import type { OrderStatus } from '#shared/types/order'
 defineProps<{ status: OrderStatus }>()
 
 const labels: Record<OrderStatus, string> = {
+  'pending-acceptance': 'Pending Acceptance',
+  accepted: 'Accepted',
   processing: 'Processing',
-  confirmed: 'Confirmed',
-  'in-transit': 'In Transit',
+  shipped: 'Shipped',
   delivered: 'Delivered',
   cancelled: 'Cancelled',
 }
 
 const colorClass: Record<OrderStatus, string> = {
+  'pending-acceptance': 'text-warning',
+  accepted: 'text-success',
   processing: 'text-text-secondary',
-  confirmed: 'text-blue-600',
-  'in-transit': 'text-blue-600',
-  delivered: 'text-text-primary',
+  shipped: 'text-info',
+  delivered: 'text-success',
   cancelled: 'text-danger',
 }
 </script>

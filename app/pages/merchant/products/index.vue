@@ -53,7 +53,7 @@ function formatPrice(value: number) {
         Add Product
       </BaseButton>
     </div>
-
+rounded-card border-1 border-white bg-surface-card p-6 shadow-md sm:p-8
     <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
       <label class="relative flex-1 sm:min-w-[220px]">
         <Icon name="lucide:search" class="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-text-muted" aria-hidden="true" />
@@ -61,21 +61,21 @@ function formatPrice(value: number) {
           v-model="search"
           type="search"
           placeholder="Search name or category"
-          class="w-full rounded-full border border-border-subtle bg-white py-2.5 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus-visible:outline-2 focus-visible:outline-focus-ring"
+          class="w-full rounded-card border-1 border-white bg-surface-card shadow-md py-2.5 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus-visible:outline-2 focus-visible:outline-focus-ring"
         >
       </label>
-      <select v-model="categoryFilter" class="rounded-full border border-border-subtle bg-white px-4 py-2.5 text-sm text-text-primary">
+      <select v-model="categoryFilter" class="rounded-card border-1 border-white bg-surface-card shadow-md px-4 py-2.5 text-sm text-text-primary">
         <option v-for="opt in categoryOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
       </select>
-      <select v-model="statusFilter" class="rounded-full border border-border-subtle bg-white px-4 py-2.5 text-sm text-text-primary">
+      <select v-model="statusFilter" class="rounded-card border-1 border-white bg-surface-card shadow-md px-4 py-2.5 text-sm text-text-primary">
         <option v-for="opt in statusOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
       </select>
-      <select v-model="availabilityFilter" class="rounded-full border border-border-subtle bg-white px-4 py-2.5 text-sm text-text-primary">
+      <select v-model="availabilityFilter" class="rounded-card border-1 border-white bg-surface-card shadow-md px-4 py-2.5 text-sm text-text-primary">
         <option v-for="opt in availabilityOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
       </select>
     </div>
 
-    <div class="mt-4 overflow-x-auto rounded-card bg-white">
+    <div class="mt-4 overflow-x-auto rounded-card border-1 border-white bg-surface-card shadow-md">
       <table class="w-full min-w-[820px] text-left text-sm">
         <thead>
           <tr class="border-b border-border-subtle text-xs font-bold uppercase tracking-wide text-text-muted">

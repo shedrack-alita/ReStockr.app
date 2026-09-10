@@ -1,7 +1,9 @@
 import type { CartLine } from './cart'
-import type { PaymentMethod, ShippingAddress } from './checkout'
+import type { DeliveryOption, PaymentMethod, ShippingAddress } from './checkout'
 
-export type OrderStatus = 'processing' | 'confirmed' | 'in-transit' | 'delivered' | 'cancelled'
+/** See /Updated Customer Features/23-24 — order lifecycle now starts with
+ * merchant acceptance before moving into fulfilment. */
+export type OrderStatus = 'pending-acceptance' | 'accepted' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
 
 export interface Order {
   id: string
@@ -12,6 +14,7 @@ export interface Order {
   deliveryFee: number
   total: number
   shippingAddress: ShippingAddress
+  deliveryOption: DeliveryOption
   paymentMethod: PaymentMethod
   placedAt: string
 }

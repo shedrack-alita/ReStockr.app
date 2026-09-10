@@ -33,7 +33,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <NuxtLink to="/merchant/welcome" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />

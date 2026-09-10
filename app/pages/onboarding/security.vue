@@ -13,7 +13,7 @@ function finish(passkeyEnabled: boolean) {
 
 <template>
   <div class="w-full max-w-lg">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <OnboardingSteps current="security" class="mb-6" />
 
       <p class="text-sm font-bold text-green-600">Set up - Security</p>
@@ -21,7 +21,7 @@ function finish(passkeyEnabled: boolean) {
       <p class="mt-2 text-sm text-text-secondary">Use your device biometrics instead of re-entering your password.</p>
 
       <div class="mt-5 flex items-start gap-3 rounded-field bg-white p-4">
-        <span class="flex size-11 shrink-0 items-center justify-center rounded-field border-2 border-green-500 text-green-600">
+        <span class="flex size-11 shrink-0 items-center justify-center rounded-field border-1 border-green-500 text-green-600">
           <Icon name="lucide:fingerprint" class="size-5" aria-hidden="true" />
         </span>
         <div>
@@ -36,7 +36,7 @@ function finish(passkeyEnabled: boolean) {
           Check out in one tap, no password typing.
         </li>
         <li class="flex items-center gap-2">
-          <Icon name="lucide:shield-check" class="size-4 text-blue-500" aria-hidden="true" />
+          <Icon name="lucide:shield-check" class="size-4 text-info" aria-hidden="true" />
           Your biometric data never leaves your device.
         </li>
       </ul>

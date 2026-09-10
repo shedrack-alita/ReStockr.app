@@ -27,7 +27,7 @@ async function handleLogout() {
 </script>
 
 <template>
-  <div class="flex min-h-dvh flex-col bg-gradient-to-b from-green-900 via-green-950 to-green-950 lg:flex-row">
+  <div class="flex min-h-dvh flex-col bg-gradient-to-b from-[#091d05] via-[#184c0e] to-[#143d0c] lg:flex-row">
     <aside class="flex shrink-0 flex-col px-4 py-6 text-white sm:px-6 lg:w-72 lg:py-8">
       <NuxtLink to="/" class="flex items-center gap-2" aria-label="ReStockr home">
         <AppLogo tone="dark" />
@@ -63,7 +63,7 @@ async function handleLogout() {
     </aside>
 
     <main class="flex-1 p-3 pb-6 sm:p-4 lg:py-6 lg:pr-6">
-      <div class="min-h-full rounded-card bg-surface-card p-5 sm:p-8">
+      <div class="min-h-full rounded-card border-1 border-white bg-surface-card p-5 sm:p-8">
         <slot />
       </div>
     </main>

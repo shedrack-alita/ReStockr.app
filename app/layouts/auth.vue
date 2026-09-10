@@ -54,7 +54,7 @@ const content = computed(() => leftPanelContent[route.name as string] ?? leftPan
         </NuxtLink>
       </div>
 
-      <div class="relative hidden overflow-hidden bg-gradient-to-b from-green-900 via-green-950 to-green-950 text-white lg:flex lg:w-[42%] lg:shrink-0 lg:flex-col">
+      <div class="relative hidden overflow-hidden bg-gradient-to-b from-[#091d05] via-[#184c0e] to-[#143d0c] text-white lg:flex lg:w-[42%] lg:shrink-0 lg:flex-col">
         
         <NuxtImg
           src="/images/home/hero-cart.png"
@@ -66,7 +66,7 @@ const content = computed(() => leftPanelContent[route.name as string] ?? leftPan
           aria-hidden="true"
         />
 
-        <div class="absolute inset-x-0 bottom-0 z-10 h-2/3 bg-gradient-to-t from-green-950 via-green-950/5 to-transparent" aria-hidden="true" />
+        <div class="absolute inset-x-0 bottom-0 z-10 h-2/3 bg-gradient-to-t from-[#143d0c] via-[#143d0c]/5 to-transparent" aria-hidden="true" />
 
         <NuxtLink to="/" aria-label="ReStockr home" class="relative z-20 mx-auto p-10 xl:p-14">
           <AppLogo tone="dark" />

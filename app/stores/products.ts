@@ -38,5 +38,9 @@ export const useProductsStore = defineStore('products', () => {
     return items.value.filter((p) => p.category === category)
   }
 
-  return { items, categories, status, fetch, newlyListed, bestSellers, bySlug, byCategory }
+  function byMerchantSlug(slug: string) {
+    return items.value.filter((p) => slugifyMerchant(p.merchantName) === slug)
+  }
+
+  return { items, categories, status, fetch, newlyListed, bestSellers, bySlug, byCategory, byMerchantSlug }
 })

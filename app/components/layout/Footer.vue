@@ -77,9 +77,13 @@ const socials: { name: string; icon: string }[] = [
         :class="dark ? 'border-white/10' : 'border-border-subtle'"
       >
         <p class="text-xs" :class="dark ? 'text-white/50' : 'text-text-muted'">© Copyright {{ year }} | ReStockr Technologies</p>
-        <div class="flex items-center gap-2" aria-label="Accepted payment methods: Visa and Mastercard">
+        <div class="flex items-center gap-2" aria-label="Accepted payment methods: Visa, Mastercard and Paystack">
+          <span class="flex h-6 items-center rounded bg-gray-950 px-2">
+            <NuxtImg src="/images/logo/paystack-logo-white.png" alt="Paystack" width="88" height="17" class="h-3 w-auto" />
+          </span>
           <Icon name="logos:visa" class="h-6 w-auto" aria-hidden="true" />
           <Icon name="logos:mastercard" class="h-6 w-auto" aria-hidden="true" />
+          
         </div>
       </div>
     </div>

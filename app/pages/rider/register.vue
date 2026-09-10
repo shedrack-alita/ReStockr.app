@@ -59,7 +59,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="w-full max-w-md">
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <button
         type="button"
         class="flex items-center gap-2 text-sm font-bold text-text-primary"

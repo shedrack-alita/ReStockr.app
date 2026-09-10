@@ -28,7 +28,7 @@ const isDisabled = computed(() => props.disabled || props.loading)
 const variantClass: Record<NonNullable<typeof props.variant>, string> = {
   primary: 'bg-gold-500 text-gray-950 hover:bg-gold-400 active:bg-gold-600',
   dark: 'bg-gray-950 text-white hover:bg-gray-800 active:bg-gray-900',
-  outline: 'bg-transparent border-2 border-current hover:bg-white/10',
+  outline: 'bg-transparent border-1 border-current hover:bg-white/10',
   ghost: 'bg-transparent text-green-600 hover:bg-green-50',
 }
 

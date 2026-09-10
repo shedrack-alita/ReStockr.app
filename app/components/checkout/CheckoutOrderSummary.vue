@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-withDefaults(defineProps<{ showPlaceOrder?: boolean }>(), { showPlaceOrder: false })
 const emit = defineEmits<{ 'place-order': [] }>()
 
 const cart = useCart()
@@ -19,19 +17,21 @@ async function handlePlaceOrder() {
 </script>
 
 <template>
-  <div class="rounded-card bg-surface-card p-5">
-    <h2 class="font-display text-lg font-bold text-text-primary">Order Summary</h2>
+  <div class="rounded-card bg-surface-card p-5 sm:p-6">
+    <h2 class="font-display text-lg font-bold text-text-primary">Order items ({{ cart.itemCount.value }})</h2>
 
-    <ul class="mt-4 max-h-64 space-y-3 overflow-y-auto">
+    <ul class="mt-4 max-h-72 space-y-4 overflow-y-auto">
       <li v-for="line in cart.lines.value" :key="line.id" class="flex items-center gap-3">
-        <span class="relative size-12 shrink-0 overflow-hidden rounded-field bg-white">
-          <NuxtImg :src="line.image.url" :alt="line.image.alt" width="48" height="48" class="size-full object-cover" />
-          <span class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-green-950 text-[10px] font-bold text-white">
-            {{ line.quantity }}
-          </span>
+        <span class="size-14 shrink-0 overflow-hidden rounded-field bg-white">
+          <NuxtImg :src="line.image.url" :alt="line.image.alt" width="56" height="56" class="size-full object-cover" />
         </span>
-        <span class="min-w-0 flex-1 truncate text-sm text-text-secondary">{{ line.name }}</span>
-        <span class="shrink-0 text-sm font-semibold text-text-primary">{{ formatCurrency(line.unitPrice * line.quantity) }}</span>
+        <span class="min-w-0 flex-1">
+          <span class="block truncate text-sm font-bold text-text-primary">{{ line.name }}</span>
+          <span class="block text-sm text-text-secondary">{{ formatCurrency(line.unitPrice) }}</span>
+        </span>
+        <span class="flex size-9 shrink-0 items-center justify-center rounded-field border border-border-strong text-sm font-bold text-text-primary">
+          {{ line.quantity }}
+        </span>
       </li>
     </ul>
 
@@ -41,8 +41,14 @@ async function handlePlaceOrder() {
         <span class="font-semibold text-text-primary">{{ formatCurrency(cart.subtotal.value) }}</span>
       </div>
       <div class="flex items-center justify-between text-text-secondary">
-        <span>Delivery fee</span>
-        <span class="font-semibold text-text-primary">{{ formatCurrency(checkout.deliveryFee.value) }}</span>
+        <span>Shipping</span>
+        <span class="font-semibold" :class="checkout.deliveryFee.value > 0 ? 'text-text-primary' : 'text-success'">
+          {{ checkout.deliveryFee.value > 0 ? formatCurrency(checkout.deliveryFee.value) : 'FREE' }}
+        </span>
+      </div>
+      <div class="flex items-center justify-between text-text-secondary">
+        <span>Estimated Tax</span>
+        <span class="font-semibold text-text-primary">₦0</span>
       </div>
       <div class="flex items-center justify-between border-t border-border-subtle pt-2 text-base font-bold text-text-primary">
         <span>Total</span>
@@ -50,14 +56,7 @@ async function handlePlaceOrder() {
       </div>
     </div>
 
-    <div v-if="checkout.shippingAddress.value" class="mt-4 border-t border-border-subtle pt-4 text-sm">
-      <p class="font-semibold text-text-primary">Deliver to</p>
-      <p class="mt-1 text-text-secondary">
-        {{ checkout.shippingAddress.value.fullName }} · {{ checkout.shippingAddress.value.addressLine }}, {{ checkout.shippingAddress.value.city }}
-      </p>
-    </div>
-
-    <BaseButton v-if="showPlaceOrder" variant="primary" block size="lg" class="mt-5" :loading="placing" @click="handlePlaceOrder">
+    <BaseButton variant="dark" block size="lg" class="mt-5" :loading="placing" @click="handlePlaceOrder">
       Place Order
     </BaseButton>
   </div>

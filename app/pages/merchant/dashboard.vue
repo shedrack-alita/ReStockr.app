@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { mockMerchantBusiness } from '~/demo/merchant'
 
-definePageMeta({ layout: 'merchant' })
+definePageMeta({ layout: 'merchant-dashboard' })
 
 useSeoMeta({ title: 'ReStockr - Merchant Dashboard' })
 
@@ -34,7 +34,7 @@ function stars(rating: number) {
     </div>
 
     <div class="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
-      <div v-for="stat in business.stats" :key="stat.label" class="rounded-card bg-white p-5">
+      <div v-for="stat in business.stats" :key="stat.label" class="rounded-card border-1 border-white bg-surface-card p-6 shadow-md sm:p-8">
         <p class="text-xs font-bold uppercase tracking-wide text-text-muted">{{ stat.label }}</p>
         <div class="mt-2 flex items-end justify-between gap-2">
           <p class="font-display text-2xl font-bold text-text-primary">{{ stat.value }}</p>
@@ -48,7 +48,7 @@ function stars(rating: number) {
 
     <div class="mt-6 grid gap-4 lg:grid-cols-3">
       <div class="space-y-4 lg:col-span-2">
-        <div class="rounded-card bg-white p-6">
+        <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-md sm:p-8">
           <h2 class="font-display text-lg font-bold text-text-primary">Business Information</h2>
           <dl class="mt-4 space-y-4">
             <div class="flex items-start gap-3">
@@ -75,7 +75,7 @@ function stars(rating: number) {
           </dl>
         </div>
 
-        <div class="rounded-card bg-white p-6">
+        <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-md sm:p-8">
           <div class="flex items-center justify-between">
             <h2 class="font-display text-lg font-bold text-text-primary">Recent Ratings & Reviews</h2>
             <NuxtLink to="/merchant/report" class="text-xs font-semibold text-text-secondary underline hover:text-text-primary">See All</NuxtLink>
@@ -102,7 +102,7 @@ function stars(rating: number) {
       </div>
 
       <div class="space-y-4">
-        <div class="rounded-card bg-white p-6">
+        <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-md sm:p-8">
           <h2 class="font-display text-lg font-bold text-text-primary">Account Status</h2>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-sm text-text-secondary">Current Plan</span>
@@ -115,7 +115,7 @@ function stars(rating: number) {
               <span class="text-text-secondary">Monthly Drop Volume</span>
               <span class="font-bold text-text-primary">{{ business.plan.monthlyDropVolume }} / {{ business.plan.monthlyDropLimit }} drops</span>
             </div>
-            <div class="mt-2 h-2 overflow-hidden rounded-full bg-gray-200">
+            <div class="mt-2 h-2 overflow-hidden rounded-full bg-green-150">
               <div
                 class="h-full rounded-full bg-green-600"
                 :style="{ width: `${(business.plan.monthlyDropVolume / business.plan.monthlyDropLimit) * 100}%` }"
@@ -124,7 +124,7 @@ function stars(rating: number) {
           </div>
         </div>
 
-        <div class="rounded-card bg-white p-6">
+        <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-md sm:p-8">
           <h2 class="font-display text-lg font-bold text-text-primary">Quick Portal Actions</h2>
           <div class="mt-4 space-y-2">
             <NuxtLink

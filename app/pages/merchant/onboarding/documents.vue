@@ -30,7 +30,7 @@ function handleSubmit() {
   <div class="w-full max-w-lg">
     <MerchantOnboardingSteps current="documents" class="mb-4" />
 
-    <div class="rounded-card border-2 border-white bg-surface-card p-6 shadow-xl sm:p-8">
+    <div class="rounded-card border-1 border-white bg-surface-card p-6 shadow-xl sm:p-8">
       <NuxtLink to="/merchant/onboarding/store" class="flex items-center gap-2 text-sm font-bold text-text-primary">
         <span class="flex size-8 items-center justify-center rounded-full bg-gray-950 text-white">
           <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />

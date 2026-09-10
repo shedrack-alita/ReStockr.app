@@ -42,7 +42,7 @@ const timelineDoneIndex = 1 // "Submitted" and "In Review" are complete while un
           <template v-for="(step, i) in timeline" :key="step.key">
             <div class="flex flex-col items-center gap-2 text-center">
               <span
-                class="flex size-11 items-center justify-center rounded-full border-2 text-sm font-bold"
+                class="flex size-11 items-center justify-center rounded-full border-1 text-sm font-bold"
                 :class="
                   i < timelineDoneIndex
                     ? 'border-green-600 bg-green-600 text-white'

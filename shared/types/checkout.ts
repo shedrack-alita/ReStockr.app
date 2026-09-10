@@ -1,4 +1,13 @@
-export type PaymentMethod = 'card' | 'bank-transfer' | 'pay-on-delivery'
+export type PaymentMethod = 'card' | 'bank-transfer' | 'ussd'
+
+export type DeliveryOptionKey = 'standard' | 'express' | 'same-day'
+
+export interface DeliveryOption {
+  key: DeliveryOptionKey
+  label: string
+  description: string
+  fee: number
+}
 
 export interface ShippingAddress {
   fullName: string
@@ -12,5 +21,6 @@ export interface ShippingAddress {
 export interface CheckoutPayload {
   cartId: string
   shippingAddress: ShippingAddress
+  deliveryOption: DeliveryOptionKey
   paymentMethod: PaymentMethod
 }

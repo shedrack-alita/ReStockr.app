@@ -43,7 +43,7 @@ const rows = [pillars.slice(0, 3), pillars.slice(3)]
 </script>
 
 <template>
-  <section class="py-14 text-center text-white sm:py-20">
+  <section id="platform" class="py-14 text-center text-white sm:py-20">
     <p class="font-display-alt text-lg text-gold-400 sm:text-xl">What We're Building</p>
     <h2 class="font-display-alt mx-auto mt-2 max-w-4xl px-4 text-3xl leading-[1.15] sm:text-5xl">
       Not A Marketplace.

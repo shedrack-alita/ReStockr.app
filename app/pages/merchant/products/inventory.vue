@@ -23,7 +23,7 @@ function isLowStock(quantity: number, threshold: number) {
       </BaseButton>
     </div>
 
-    <div class="mt-6 overflow-x-auto rounded-card bg-white">
+    <div class="mt-6 overflow-x-auto rounded-card border-1 border-white bg-surface-card shadow-md">
       <table class="w-full min-w-[720px] text-left text-sm">
         <thead>
           <tr class="border-b border-border-subtle text-xs font-bold uppercase tracking-wide text-text-muted">

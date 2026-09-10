@@ -23,14 +23,14 @@ const recentOrders = computed(() => orders.items.slice(0, 2))
         <h1 class="font-display text-3xl font-bold text-text-primary">Good morning, {{ firstName }}</h1>
         <p class="mt-1 text-sm text-text-secondary">Welcome to back to your account.</p>
       </div>
-      <button
-        type="button"
+      <NuxtLink
+        to="/account/notifications"
         aria-label="Notifications"
         class="relative flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-text-primary hover:bg-gray-100"
       >
         <Icon name="lucide:bell" class="size-5" aria-hidden="true" />
         <span class="absolute right-2.5 top-2.5 size-2 rounded-full bg-danger" aria-hidden="true" />
-      </button>
+      </NuxtLink>
     </div>
 
     <div class="mt-6 grid gap-4 sm:grid-cols-2">
@@ -73,7 +73,7 @@ const recentOrders = computed(() => orders.items.slice(0, 2))
           />
           <div class="min-w-0 flex-1">
             <p class="text-sm font-bold text-text-primary">#{{ order.reference }}</p>
-            <p class="truncate font-display text-lg font-semibold italic text-text-secondary">{{ order.lines[0]!.name }}</p>
+            <p class="truncate font-display text-lg font-semibold text-text-secondary">{{ order.lines[0]!.name }}</p>
           </div>
           <div class="sm:text-right">
             <AccountOrderStatusLabel :status="order.status" />
@@ -84,7 +84,7 @@ const recentOrders = computed(() => orders.items.slice(0, 2))
             </p>
           </div>
           <BaseButton :to="`/orders/${order.id}`" variant="dark" size="sm">
-            {{ order.status === 'in-transit' ? 'Track Order' : 'View Order' }}
+            {{ order.status === 'shipped' ? 'Track Order' : 'View Order' }}
           </BaseButton>
         </div>
 

@@ -3,12 +3,15 @@ const audiences = [
   { key: 'customers', label: 'Customers', to: '/welcome' },
   { key: 'merchants', label: 'Merchants', to: '/merchant/welcome' },
   { key: 'riders', label: 'Riders', to: '/rider/register' },
+  { key: 'enterprise', label: 'Enterprise', to: '/enterprise' },
 ] as const
 
 const route = useRoute()
+const isLandingPage = computed(() => route.path === '/')
 const activeAudience = computed<(typeof audiences)[number]['key']>(() => {
   if (route.path.startsWith('/merchant')) return 'merchants'
   if (route.path.startsWith('/rider')) return 'riders'
+  if (route.path.startsWith('/enterprise')) return 'enterprise'
   return 'customers'
 })
 const isMenuOpen = ref(false)
@@ -26,7 +29,14 @@ async function handleSignOut() {
 </script>
 
 <template>
-  <header class="sticky top-0 z-30 bg-green-950 text-white">
+  <header
+    class="sticky top-0 z-30 text-white"
+    :class="
+      isLandingPage
+        ? 'bg-gradient-to-b from-[#184c0e] from-[0%] via-[#1e6f12] via-[47%] to-[#1b5e10] to-[95%]'
+        : 'bg-gradient-to-b from-[#091d05] via-[#184c0e] to-[#143d0c]'
+    "
+  >
     <div class="mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-6">
       <div class="flex items-center justify-between gap-4">
         <NuxtLink to="/" class="shrink-0" aria-label="ReStockr home">
@@ -34,18 +44,19 @@ async function handleSignOut() {
         </NuxtLink>
 
         <div class="flex items-center gap-1">
-          <nav class="hidden items-center gap-2 text-xs font-bold uppercase tracking-wide sm:flex" aria-label="Primary">
-            <NuxtLink to="/marketplace" class="rounded-full border border-white/40 px-4 py-1.5 hover:bg-white/10">Explore</NuxtLink>
-            <NuxtLink to="/about" class="rounded-full border border-white/40 px-4 py-1.5 hover:bg-white/10">About us</NuxtLink>
+          <nav class="hidden items-center gap-4 text-xs font-bold uppercase tracking-wide sm:flex" aria-label="Primary">
+            <NuxtLink to="/#platform" class="hover:text-white/80">Platform</NuxtLink>
+            <NuxtLink to="/#showcase" class="hover:text-white/80">Explore</NuxtLink>
+            <NuxtLink to="/marketplace" class="hover:text-white/80">Marketplace</NuxtLink>
+            <NuxtLink to="/about" class="hover:text-white/80">About us</NuxtLink>
             <button
               v-if="auth.isSignedIn.value"
               type="button"
-              class="rounded-full border border-white/40 px-4 py-1.5 hover:bg-white/10"
+              class="rounded-full border border-white/40 px-4 py-1.5 normal-case tracking-normal hover:bg-white/10"
               @click="handleSignOut"
             >
               Sign out
             </button>
-            <NuxtLink v-else to="/welcome" class="rounded-full border border-white/40 px-4 py-1.5 hover:bg-white/10">Sign in</NuxtLink>
           </nav>
 
           <NuxtLink
@@ -93,7 +104,9 @@ async function handleSignOut() {
       class="flex flex-col gap-1 border-t border-white/10 px-4 py-3 text-sm font-semibold sm:hidden"
       aria-label="Primary"
     >
-      <NuxtLink to="/marketplace" class="rounded-field px-2 py-2 hover:bg-white/10" @click="isMenuOpen = false">Explore</NuxtLink>
+      <NuxtLink to="/#platform" class="rounded-field px-2 py-2 hover:bg-white/10" @click="isMenuOpen = false">Platform</NuxtLink>
+      <NuxtLink to="/#showcase" class="rounded-field px-2 py-2 hover:bg-white/10" @click="isMenuOpen = false">Explore</NuxtLink>
+      <NuxtLink to="/marketplace" class="rounded-field px-2 py-2 hover:bg-white/10" @click="isMenuOpen = false">Marketplace</NuxtLink>
       <NuxtLink to="/about" class="rounded-field px-2 py-2 hover:bg-white/10" @click="isMenuOpen = false">About us</NuxtLink>
       <button v-if="auth.isSignedIn.value" type="button" class="rounded-field px-2 py-2 text-left hover:bg-white/10" @click="handleSignOut">
         Sign out
